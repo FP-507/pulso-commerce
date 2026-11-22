@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pulso Commerce · Dashboard</title>
+  <meta name="description" content="Dashboard de e-commerce: ventas, retención por cohortes, segmentación RFM y economía por canal (datos sintéticos).">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="viz-root">
+    <header class="top">
+      <div>
+        <p class="eyebrow">Pulso Commerce · Analítica de e-commerce</p>
+        <h1>¿Qué canales traen clientes que vuelven?</h1>
+        <p class="lead">Dos años de una tienda online ficticia en Panamá. Datos sintéticos generados con un pipeline en Python y analizados con SQL.</p>
+      </div>
+      <div class="filters" role="group" aria-label="Filtros">
+        <label>Año
+          <select id="f-anio">
+            <option value="todo">2024–2025</option>
+            <option value="2025" selected>2025</option>
+            <option value="2024">2024</option>
+          </select>
+        </label>
+        <label>Canal
+          <select id="f-canal"><option value="todos">Todos los canales</option></select>
+        </label>
+      </div>
+    </header>
+
+    <section class="kpis" aria-label="Indicadores clave" id="kpis"></section>
+
+    <section class="grid">
+      <article class="card span-2">
+        <header><h2>Ventas mensuales</h2><p class="sub" id="sub-ventas">Pedidos entregados, USD</p></header>
+        <div class="chart-box tall"><canvas id="c-ventas" aria-label="Ventas mensuales" role="img"></canvas></div>
+      </article>
+
+      <article class="card">
+        <header><h2>LTV:CAC por canal</h2><p class="sub">Margen por cliente ÷ costo de adquisición. Sobre 3x es saludable.</p></header>
+        <div class="chart-box"><canvas id="c-canales" aria-label="LTV a CAC por canal" role="img"></canvas></div>
+      </article>
+
+      <article class="card">
+        <header><h2>Segmentos RFM</h2><p class="sub">Peso de cada segmento en clientes y en ventas</p></header>
+        <div class="legend" id="lg-rfm"></div>
+        <div class="chart-box"><canvas id="c-rfm" aria-label="Segmentos RFM" role="img"></canvas></div>
+      </article>
+
+      <article class="card span-2">
+        <header><h2>Retención por cohorte</h2><p class="sub">% de clientes de cada mes de primera compra que vuelve a comprar N meses después</p></header>
+        <div class="cohort-wrap"><table class="cohort" id="t-cohortes"></table></div>
+        <div class="scale" aria-hidden="true"><span>0%</span><i></i><span id="scale-max">30%</span></div>
+      </article>
+
+      <article class="card">
+        <header><h2>Ventas por categoría</h2><p class="sub">Etiqueta: margen bruto</p></header>
+        <div class="chart-box"><canvas id="c-categorias" aria-label="Ventas por categoría" role="img"></canvas></div>
+      </article>
+
+      <article class="card">
+        <header><h2>Economía por canal</h2><p class="sub">Clientes captados en 2024–2025</p></header>
+        <div class="table-wrap"><table class="data" id="t-canales"></table></div>
+      </article>
+    </section>
+
+    <section class="insights card" aria-labelledby="h-ins">
+      <h2 id="h-ins">Hallazgos</h2>
+      <ol id="insights"></ol>
+    </section>
+
+    <footer class="foot">
+      Proyecto de portafolio de <a href="https://fp-507.github.io/Portafolio/">Fidel Pizart</a> ·
+      <a href="https://github.com/FP-507/pulso-commerce">Código y SQL en GitHub</a> · Datos sintéticos
+    </footer>
+  </div>
+</body>
+</html>
