@@ -65,3 +65,7 @@ datos/      CSV crudos (y pulso.db al ejecutar)
 docs/       dashboard publicado en GitHub Pages
 tests/      pytest
 ```
+
+## Para retomar el proyecto
+
+Arquitectura, decisiones técnicas, cómo extenderlo y pendientes: [DESARROLLO.md](DESARROLLO.md).
