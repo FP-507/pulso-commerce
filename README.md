@@ -8,6 +8,10 @@ Análisis de punta a punta de una tienda online: **generación de datos → SQL 
 
 > Los datos son **sintéticos**: una tienda ficticia con 7 800 clientes, 21 700 pedidos y 37 000 líneas de pedido en 2024–2025, generados con reglas realistas (estacionalidad, recompra distinta por canal, inactividad que reduce la probabilidad de volver).
 
+![Dashboard de Pulso Commerce: recorrido por los gráficos y filtros por año y canal](media/demo.gif)
+
+*Recorrido por el dashboard (ventas, LTV:CAC, RFM, cohortes) y filtros por año y canal.*
+
 ## Hallazgos
 
 | | |
